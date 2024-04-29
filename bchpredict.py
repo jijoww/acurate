@@ -219,19 +219,19 @@ def main():
     
     
     # Bagi data menjadi data pelatihan dan data uji
-    train_data, test_data = train_test_split(data, test_size=0.2, shuffle=False)  # Misalnya, menggunakan 20% data untuk uji
+    #train_data, test_data = train_test_split(data, test_size=0.2, shuffle=False)  # Misalnya, menggunakan 20% data untuk uji
     
     # Latih model menggunakan data pelatihan
-    model, scaler, train_losses, rmse_values = train_model(train_data, seq_length=seq_length, num_epochs=num_epochs, hidden_size=hidden_size, num_layers=num_layers, num_days_to_predict=num_days_to_predict)
+    #model, scaler, train_losses, rmse_values = train_model(train_data, seq_length=seq_length, num_epochs=num_epochs, hidden_size=hidden_size, num_layers=num_layers, num_days_to_predict=num_days_to_predict)
     
     # Evaluasi model menggunakan data uji
-    last_day_data_test = test_data['Close'].values[-seq_length:]
-    predicted_future_prices_test = predict_future_prices(model, scaler, last_day_data_test, num_days=num_days_to_predict)
-    actual_prices_test = test_data['Close'].values[-num_days_to_predict:]
-    rmse_value_test = np.sqrt(mean_squared_error(actual_prices_test, predicted_future_prices_test))
+    #last_day_data_test = test_data['Close'].values[-seq_length:]
+    #predicted_future_prices_test = predict_future_prices(model, scaler, last_day_data_test, num_days=num_days_to_predict)
+    #actual_prices_test = test_data['Close'].values[-num_days_to_predict:]
+    #rmse_value_test = np.sqrt(mean_squared_error(actual_prices_test, predicted_future_prices_test))
     
     # Tampilkan hasil evaluasi
-    st.write("Nilai RMSE pada data uji:", rmse_value_test)
+    #st.write("Nilai RMSE pada data uji:", rmse_value_test)
     
 
 if __name__ == "__main__":
