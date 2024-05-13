@@ -57,7 +57,7 @@ def get_data(start_date, end_date, csv_path):
     return filtered_data
 
 # Fungsi untuk melatih model
-def train_model(data, seq_length=0, num_epochs=0, hidden_size=0, num_layers=0, num_days_to_predict=0):
+def train_model(data, seq_length=0, num_epochs=0, hidden_size=0, num_layers=1, num_days_to_predict=0):
     # Preprocessing data
     
     scaler = MinMaxScaler(feature_range=(0, 1))
@@ -130,7 +130,7 @@ def main():
     seq_length = st.slider("Pilih panjang sekuens:", min_value=1, max_value=100, value=30)
     num_epochs = st.slider("Pilih jumlah epoch:", min_value=1, max_value=50, value=25)
     hidden_size = st.slider("Pilih ukuran hidden layer:", min_value=1, max_value=50, value=10)
-    num_layers = st.slider("Pilih jumlah layer LSTM:", min_value=1, max_value=10, value=1)
+    #num_layers = st.slider("Pilih jumlah layer LSTM:", min_value=1, max_value=10, value=1)
     num_days_to_predict = st.slider("Pilih jumlah hari yang akan diprediksi:", min_value=1, max_value=30, value=1)
 
     # Dapatkan data sesuai parameter
