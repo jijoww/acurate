@@ -22,7 +22,7 @@ class LSTMModel(nn.Module):
     def forward(self, x):
         out, _ = self.lstm(x)
         out = self.dropout(out)
-        out = self.fc(out[:, -30, :])  # Ambil output dari langkah terakhir saja
+        out = self.fc(out[:, -1, :])  # mengambil output dari langkah terakhir 
         return out
     
 def predict_future_prices(model, scaler, initial_data, num_days):
