@@ -81,7 +81,7 @@ def train_model(data, seq_length=0, num_epochs=0, hidden_size=0, num_layers=1, n
     output_size = 1
     model = LSTMModel(input_size, hidden_size, num_layers, output_size,dropout=0.3)
     criterion = nn.MSELoss()
-    optimizer = torch.optim.Adam(model.parameters(), lr=0.5)
+    optimizer = torch.optim.Adam(model.parameters(), lr=0.09)
     
     train_losses = []
     rmse_values = []
