@@ -15,7 +15,7 @@ import joblib
 class LSTMModel(nn.Module):
     def __init__(self, input_size, hidden_size, num_layers, output_size, dropout):
         super(LSTMModel, self).__init__()
-        self.lstm = nn.LSTM(input_size, hidden_size, num_layers, batch_first=False, dropout=dropout)
+        self.lstm = nn.LSTM(input_size, hidden_size, num_layers, batch_first=True, dropout=dropout)
         self.dropout = Dropout(dropout)
         self.fc = nn.Linear(hidden_size, output_size)
 
@@ -81,7 +81,7 @@ def train_model(data, seq_length=0, num_epochs=0, hidden_size=0, num_layers=1, n
     output_size = 1
     model = LSTMModel(input_size, hidden_size, num_layers, output_size,dropout=0.2)
     criterion = nn.MSELoss()
-    optimizer = torch.optim.Adam(model.parameters(), lr=0.04)
+    optimizer = torch.optim.Adam(model.parameters(), lr=0.05)
     
     train_losses = []
     rmse_values = []
