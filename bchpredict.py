@@ -15,7 +15,7 @@ import joblib
 class LSTMModel(nn.Module):
     def __init__(self, input_size, hidden_size, num_layers, output_size, dropout):
         super(LSTMModel, self).__init__()
-        self.lstm = nn.LSTM(input_size, hidden_size, num_layers, batch_first=64, dropout=dropout)
+        self.lstm = nn.LSTM(input_size, hidden_size, num_layers, batch_first=False, dropout=dropout)
         self.dropout = Dropout(dropout)
         self.fc = nn.Linear(hidden_size, output_size)
 
